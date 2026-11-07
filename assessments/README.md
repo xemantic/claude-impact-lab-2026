@@ -19,3 +19,5 @@ The assessments are published so teams can review and compare them.
 | [#11](11-metabolite-sensor-finder.md) | MetaboliteSensorFinder | 4 | 2 | 1 | 3 | 1 | Needs attention: no LICENSE file on the submitted branch |
 | [#12](12-science-resocialized.md) | Science Resocialized | 4 | 3 | 4 | 3 | 3 | Needs attention: no LICENSE file; republished OSF materials |
 | [#13](13-do-llms-argue-like-humans.md) | Do LLMs Argue Like Humans? (Team 2) | 3 | 4 | 2 | 4 | 3 | Needs attention: CC BY-SA 4.0 data license not named in the issue, HC3 text not covered by it |
+| [#15](15-llm-lying-detection.md) (also #14) | llm-lying-detection | 4 | 4 | 3 | 4 | 3 | Needs attention: MIT only, with no text license, and #14 names Apache 2.0/CC BY 4.0; copied blog post without a reuse license |
+| [#16](16-predictive-lens.md) | predictive lens | 3 | 2 | 4 | 5 | 4 | Needs attention: code is MIT, not the Apache 2.0 named in the issue |
