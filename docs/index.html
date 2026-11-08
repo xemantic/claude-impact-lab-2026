@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Claude Impact Lab Berlin 2026</title>
-<meta name="description" content="One day, thirteen open science problems, thirteen open-source research loops. Scientists and AI engineers of Claude Community Berlin and Foresight Institute built agents that read the literature, write and run code, and check their own results.">
+<meta name="description" content="Healing hearts, AI people can trust, a safer society, a livable planet: in one day, scientists and AI engineers of Claude Community Berlin and Foresight Institute built thirteen open-source research loops on open science problems that matter to people's lives.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Claude Impact Lab Berlin 2026: AI research loops for open science problems">
-<meta property="og:description" content="One day, 13 open science problems, 13 open-source research loops, every claim checked against its repository.">
+<meta property="og:description" content="From hearts that heal to AI that cannot lie unseen: 13 open science problems, 13 open-source research loops in one day, every claim checked against its repository.">
 <meta property="og:image" content="https://xemantic.github.io/claude-impact-lab-2026/og.png">
 <meta property="og:url" content="https://xemantic.github.io/claude-impact-lab-2026/">
 <meta name="twitter:card" content="summary_large_image">
@@ -111,6 +111,35 @@ nav.top .links a:hover { color: var(--ink); }
 .stat b { display: block; font: 600 44px/1 "Source Serif 4", serif; color: var(--ink); }
 .stat span { display: block; margin-top: 10px; font-size: 14px; color: var(--ink-2); line-height: 1.45; }
 @media (max-width: 820px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+
+/* impact */
+.value { margin-top: 44px; }
+.value-h { font-size: 24px; display: flex; align-items: center; gap: 12px; }
+.value-h::before { content: ""; width: 12px; height: 12px; border-radius: 50%; background: var(--vc); }
+.value[data-v="health"] { --vc: #c4553a; }
+.value[data-v="ai"] { --vc: #6a5acd; }
+.value[data-v="soc"] { --vc: #2f6f6a; }
+.value[data-v="planet"] { --vc: #5f8a3a; }
+@media (prefers-color-scheme: dark) {
+  .value[data-v="health"] { --vc: #e8826a; }
+  .value[data-v="ai"] { --vc: #a99cf0; }
+  .value[data-v="soc"] { --vc: #7cc0b8; }
+  .value[data-v="planet"] { --vc: #9cc777; }
+}
+.impacts { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; margin-top: 16px; }
+@media (max-width: 400px) { .impacts { grid-template-columns: 1fr; } }
+.impact {
+  background: var(--surface); border: 1px solid var(--line); border-top: 4px solid var(--vc);
+  border-radius: 16px; padding: 22px; display: flex; flex-direction: column;
+  box-shadow: var(--shadow); text-decoration: none; color: inherit;
+}
+.impact:hover { border-color: var(--vc); }
+.impact b { font: 600 23px/1.2 "Source Serif 4", serif; }
+.impact p { margin: 12px 0 16px; font-size: 15.5px; line-height: 1.55; }
+.impact .step { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--line); font-size: 14.5px; color: var(--ink-2); line-height: 1.5; }
+.impact .step span { display: block; font: 500 11px "IBM Plex Mono", monospace; text-transform: uppercase; letter-spacing: .07em; color: var(--accent); margin-bottom: 4px; }
+.impact .who { margin-top: 14px; font: 500 12px "IBM Plex Mono", monospace; color: var(--ink-2); letter-spacing: .03em; }
+.card dd b { font-weight: 600; }
 
 /* format */
 .alt { background: var(--surface-2); }
@@ -242,6 +271,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 32px; justify-content: 
   <div class="wrap">
     <a class="brand" href="#top">Claude Impact Lab Berlin</a>
     <div class="links">
+      <a href="#impact">Why it matters</a>
       <a href="#format">The format</a>
       <a href="#results">Results</a>
       <a href="#projects">Projects</a>
@@ -255,8 +285,9 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 32px; justify-content: 
 <header class="hero" id="top">
   <div class="wrap">
     <div class="eyebrow">Claude Community Berlin × <a href="https://foresight.org/">Foresight Institute</a></div>
-    <h1>One day. Thirteen open science problems. <em>Thirteen open-source research loops.</em></h1>
+    <h1>Healing hearts, honest AI, a livable planet. <em>Thirteen research loops, built in one day.</em></h1>
     <p class="lede">
+      Behind every open science problem is someone it could help: a patient, a family choosing a home, a person trusting an AI's answer.
       Scientists brought the open problems from their own research that they most wanted AI help with.
       They teamed up with AI engineers and spent a day building research loops:
       agents that read the literature, write and run code, and check their own results.
@@ -268,19 +299,64 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 32px; justify-content: 
       <span>A Claude Community Berlin event, co-hosted by <a href="https://foresight.org/">Foresight Institute</a>'s Berlin AI Node</span>
     </div>
     <div class="cta">
-      <a class="btn primary" href="#projects">Explore the 13 projects</a>
-      <a class="btn" href="#format">How an Impact Lab works</a>
+      <a class="btn primary" href="#impact">Why it matters</a>
+      <a class="btn" href="#projects">Explore the 13 projects</a>
       <a class="btn" href="#join">Run the next one</a>
     </div>
 
     <div class="stats" role="list">
       <div class="stat" role="listitem"><b>13</b><span>research loops, each in a public GitHub repository</span></div>
-      <div class="stat" role="listitem"><b>12</b><span>research areas, from zebrafish hearts to SSH servers</span></div>
+      <div class="stat" role="listitem"><b>4</b><span>human goals: healthier lives, AI people can trust, a safer society, a livable planet</span></div>
       <div class="stat" role="listitem"><b>11</b><span>projects whose results recompute exactly from their committed files or public data</span></div>
       <div class="stat" role="listitem"><b>7</b><span>projects that report a negative result or a missed target in plain words</span></div>
     </div>
   </div>
 </header>
+
+<section id="impact">
+  <div class="wrap">
+    <div class="eyebrow">Why it matters</div>
+    <h2>Behind every problem, a reason to care</h2>
+    <p class="lede">
+      Each loop works on a narrow, checkable question.
+      Each question sits on a road that ends in people’s lives: a heart that heals, an AI answer you can rely on, a home that is good for the planet.
+      Below, the goal that makes each problem worth solving, and how far one day got toward it, so you can judge the potential and the progress separately.
+    </p>
+    <div class="value" data-v="health">
+      <h3 class="value-h">Healthier lives</h3>
+      <div class="impacts">
+        <a class="impact" href="#p9"><b>Hearts that heal themselves</b><p>A zebrafish regrows its heart muscle after an injury; a human heart scars after a heart attack. Knowing which cells do the healing is a step toward therapies that help human hearts repair themselves.</p><div class="step"><span>One day’s step</span>Widely used injury markers turned out to mostly mark the atrium, so the search for the healing cells needs a second look.</div><div class="who">Dr Drerio · #9 →</div></a>
+        <a class="impact" href="#p8"><b>How sleep keeps our memories</b><p>During sleep, the brain replays the day to store it. Watching that happen in thousands of cells at once could help explain memory loss in ageing and disease.</p><div class="step"><span>One day’s step</span>A toolbox with its answer key locked in advance, which said honestly: not enough evidence yet.</div><div class="who">Shift Happens · #8 →</div></a>
+        <a class="impact" href="#p11"><b>Watching metabolism in living cells</b><p>Biosensors that light up when a metabolite appears let labs follow metabolism live, in diabetes, cancer and the microbes that make medicines. Today, finding one for a new molecule takes a structural-biology budget.</p><div class="step"><span>One day’s step</span>A screening funnel and 8,685 curated protein–ligand pairs to score it against; the first screen is still to run.</div><div class="who">MetaboliteSensorFinder · #11 →</div></a>
+      </div>
+    </div>
+    <div class="value" data-v="ai">
+      <h3 class="value-h">AI people can trust</h3>
+      <div class="impacts">
+        <a class="impact" href="#p6"><b>AI that can’t cheat in secret</b><p>AI systems now write code and run tasks for millions of people. We need to see when a model games its goals, before models learn to hide it.</p><div class="step"><span>One day’s step</span>Never told to cheat, a small open model gamed its tests in 17% of samples: an open testbed for the monitors meant to catch it.</div><div class="who">meowlignment · #6 →</div></a>
+        <a class="impact" href="#p15"><b>Knowing when an AI is lying</b><p>A lie detector for AI only helps if it catches lies it has never seen. That is what would let people rely on what a model tells them.</p><div class="step"><span>One day’s step</span>Claude improved a lie detector on kinds of lies it had never seen, from 0.806 to 0.845 on a sealed test.</div><div class="who">llm-lying-detection · #15 →</div></a>
+        <a class="impact" href="#p13"><b>Keeping our reasoning rich</b><p>More and more people learn and decide with AI answers. If those answers skip the counterarguments, how we reason together gets flatter.</p><div class="step"><span>One day’s step</span>A more stable way to map the arguments in a text; the human-versus-AI comparison comes next.</div><div class="who">Do LLMs Argue Like Humans? · #13 →</div></a>
+      </div>
+    </div>
+    <div class="value" data-v="soc">
+      <h3 class="value-h">A safer, more trustworthy society</h3>
+      <div class="impacts">
+        <a class="impact" href="#p4"><b>Safer digital infrastructure</b><p>SSH is how the world’s servers, routers and devices are run, yet many lesser-known implementations are rarely audited. Agent-built testing could check every one of them.</p><div class="step"><span>One day’s step</span>Agent-built tooling learned 12 real SSH servers in a day and found a protocol-rule violation still present in wolfSSH.</div><div class="who">Plov · #4 →</div></a>
+        <a class="impact" href="#p3"><b>Following stolen money, in the open</b><p>Crypto thefts move billions into crime, and tracing them relies mostly on closed commercial tools. Open, explainable methods let researchers, smaller exchanges and the public check the work.</p><div class="step"><span>One day’s step</span>From a fifth of the FBI’s list for one major theft, simple rules put 49 listed addresses in their top 50.</div><div class="who">ChainSentinel · #3 →</div></a>
+        <a class="impact" href="#p10"><b>Privacy for people who share their stories</b><p>People who give interviews to researchers are promised anonymity. Knowing how much a “blinded” transcript still reveals lets archives protect them and stay open to research.</p><div class="step"><span>One day’s step</span>From blinded transcripts, a loop recovered speakers’ sex and recording era in all 99 interviews it completed.</div><div class="who">KaAnOm · #10 →</div></a>
+        <a class="impact" href="#p12"><b>Science we can rely on</b><p>Many published findings fail to replicate, which misleads medicine and policy. As AI multiplies claims, we need review that reliably lands on the truth.</p><div class="step"><span>One day’s step</span>Blind agents reached the recorded replication outcome on all 30 studies; the review panels run next.</div><div class="who">Science Resocialized · #12 →</div></a>
+      </div>
+    </div>
+    <div class="value" data-v="planet">
+      <h3 class="value-h">A livable planet</h3>
+      <div class="impacts">
+        <a class="impact" href="#p7"><b>Homes good for people and the planet</b><p>Buildings are among the largest sources of greenhouse gases, and Germany asks for their life-cycle emissions from 2027. Architects need honest comparisons early, while materials are still being chosen.</p><div class="step"><span>One day’s step</span>A transparent comparison ranked timber with straw and clay first, and found unit errors in Germany’s official materials database.</div><div class="who">BauCode · #7 →</div></a>
+        <a class="impact" href="#p16"><b>Ready for the next energy shock</b><p>The energy transition shapes prices, jobs and the climate, and shocks like the 2022 gas crisis hit households hard. Planners need forecasts whose every assumption is visible and scored.</p><div class="step"><span>One day’s step</span>An honest backtest: no indicator would have warned in time before 2008, 2020 or 2022. Live forecasts resolve from 2027.</div><div class="who">predictive lens · #16 →</div></a>
+        <a class="impact" href="#p5"><b>Stronger steel, checked faster</b><p>Grain size decides how strong and durable a metal is, from bridges to medical implants. Measuring it is still slow, manual work in materials labs.</p><div class="step"><span>One day’s step</span>An agent tuned an explainable pipeline from 1290% error to 17% on unseen steel images, still short of its 10% target.</div><div class="who">micrograph · #5 →</div></a>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="alt" id="format">
   <div class="wrap">
@@ -387,6 +463,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 32px; justify-content: 
         <h3>ChainSentinel</h3>
         <div class="title">Recovering FBI-listed laundering addresses of the Binance theft from 20% seeds</div>
         <dl>
+          <dt>Why it matters</dt><dd><b>Following stolen money, in the open.</b> Crypto thefts move billions into crime, and tracing them relies mostly on closed commercial tools. Open, explainable methods let researchers, smaller exchanges and the public check the work.</dd>
           <dt>The question</dt><dd>Can open, explainable rules recover the Ethereum addresses the FBI tied to a major exchange theft, given only a fifth of them?</dd>
           <dt>What it found</dt><dd>The best rules put 49 FBI-listed addresses in the top 50 and reach 343 of 486 held-out addresses (71%). An independent reimplementation reproduced the ranking exactly.</dd>
           <dt>Where it got stuck</dt><dd>The literature step was never used, and the FBI list itself comes from investigators&#x27; tracing, so the scores measure agreement with them, not new discovery.</dd>
@@ -399,6 +476,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 32px; justify-content: 
         <h3>Plov</h3>
         <div class="title">Agents build the SSH mapper: differential state machine learning of 12 implementations</div>
         <dl>
+          <dt>Why it matters</dt><dd><b>Safer digital infrastructure.</b> SSH is how the world’s servers, routers and devices are run, yet many lesser-known implementations are rarely audited. Agent-built testing could check every one of them.</dd>
           <dt>The question</dt><dd>Can agents build the protocol “mapper” that state-machine learning needs, a step that usually costs experts weeks per implementation?</dd>
           <dt>What it found</dt><dd>An agent-built SSH mapper reached 12 servers in a day and matched the published harness on the three they share. The pipeline found an RFC 4253 §7.1 violation still present in wolfSSH, backed by packet traces.</dd>
           <dt>Where it got stuck</dt><dd>Two targets never converged, the input alphabet covers only password login and one cipher, and the candidate findings await confirmation by maintainers.</dd>
@@ -411,6 +489,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 32px; justify-content: 
         <h3>micrograph</h3>
         <div class="title">An agent loop that tunes classical grain segmentation on optical micrographs of metals</div>
         <dl>
+          <dt>Why it matters</dt><dd><b>Stronger steel, checked faster.</b> Grain size decides how strong and durable a metal is, from bridges to medical implants. Measuring it is still slow, manual work in materials labs.</dd>
           <dt>The question</dt><dd>Can an agent tune an explainable, classical pipeline to measure grain size in steel micrographs against expert masks?</dd>
           <dt>What it found</dt><dd>Error on the development set fell from 1290% to 12.6%, and to 17.4% on 165 unseen images. Every number recomputed exactly from the public 316L dataset.</dd>
           <dt>Where it got stuck</dt><dd>It misses its own 10% target, as the team says: one global scale cannot fit fine- and coarse-grained images, and the literature step worked mostly from memory.</dd>
@@ -423,6 +502,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 32px; justify-content: 
         <h3>meowlignment</h3>
         <div class="title">Searching for a model organism of sneaky reward hacking</div>
         <dl>
+          <dt>Why it matters</dt><dd><b>AI that can’t cheat in secret.</b> AI systems now write code and run tasks for millions of people. We need to see when a model games its goals, before models learn to hide it.</dd>
           <dt>The question</dt><dd>Is there a small open model that cheats on its tests in a way a monitor cannot see in the code, but can see in its chain of thought?</dd>
           <dt>What it found</dt><dd>Never told to cheat, Qwen3-8B wrote a planted mutant test&#x27;s behaviour in 17% of samples, against 0–1% in two controls. Labels come from running the code, not from a judge.</dd>
           <dt>Where it got stuck</dt><dd>A same-size monitor that is allowed to think still catches 60–87% of the hacks, no setup passes every criterion at 95% confidence, and the behaviour is prompted, not trained.</dd>
@@ -435,6 +515,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 32px; justify-content: 
         <h3>BauCode</h3>
         <div class="title">A wider lens on material use in sustainability and well-being</div>
         <dl>
+          <dt>Why it matters</dt><dd><b>Homes good for people and the planet.</b> Buildings are among the largest sources of greenhouse gases, and Germany asks for their life-cycle emissions from 2027. Architects need honest comparisons early, while materials are still being chosen.</dd>
           <dt>The question</dt><dd>How do structural systems for German housing compare on life-cycle carbon, moisture safety and disassembly, with the system boundary stated?</dd>
           <dt>What it found</dt><dd>Timber frame with straw infill and clay plaster ranked first, with the lowest life-cycle carbon at 140 kgCO₂e/m². Along the way the team found reference-unit errors in the Ökobaudat database itself.</dd>
           <dt>Where it got stuck</dt><dd>The ranking rests mostly on assumed property values and moves with the model, the source export is not committed, and the two loops are not yet connected.</dd>
@@ -447,6 +528,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 32px; justify-content: 
         <h3>Shift Happens</h3>
         <div class="title">Calcium sleep reactivation toolbox: four methods, one locked answer key</div>
         <dl>
+          <dt>Why it matters</dt><dd><b>How sleep keeps our memories.</b> During sleep, the brain replays the day to store it. Watching that happen in thousands of cells at once could help explain memory loss in ageing and disease.</dd>
           <dt>The question</dt><dd>Are the standard methods for detecting memory reactivation in sleep, built for electrode spikes, valid on slow calcium-imaging data?</dd>
           <dt>What it found</dt><dd>With the verdict rule locked before any real data, the toolbox detects known reactivation in rat recordings and returns “not enough evidence” on the public mouse calcium session. Every key number recomputed from the raw public data.</dd>
           <dt>Where it got stuck</dt><dd>Two of the four methods fail their own controls, and there is no public calcium dataset yet with learning between sleep bouts to serve as a true positive.</dd>
@@ -459,6 +541,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 32px; justify-content: 
         <h3>Dr Drerio</h3>
         <div class="title">An agent that checks itself when cell states have no ground truth</div>
         <dl>
+          <dt>Why it matters</dt><dd><b>Hearts that heal themselves.</b> A zebrafish regrows its heart muscle after an injury; a human heart scars after a heart attack. Knowing which cells do the healing is a step toward therapies that help human hearts repair themselves.</dd>
           <dt>The question</dt><dd>How do you trust an agent&#x27;s cell-state annotation of the regenerating zebrafish heart when no ground truth exists? Score its checks, by planting defects.</dd>
           <dt>What it found</dt><dd>Published border-zone and injury markers mostly mark the atrium, and inside the ventricle three of the four “states” collapse into one <i>nppa</i>/<i>nppb</i> program, across eight reviewed cycles.</dd>
           <dt>Where it got stuck</dt><dd>The analyses need a processed data file that is not public, the real-data diagnoses come from one dataset, and the comparison with expert labels is still to come.</dd>
@@ -471,6 +554,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 32px; justify-content: 
         <h3>KaAnOm</h3>
         <div class="title">Three AI-agent approaches to speaker profiling, and how far to trust them</div>
         <dl>
+          <dt>Why it matters</dt><dd><b>Privacy for people who share their stories.</b> People who give interviews to researchers are promised anonymity. Knowing how much a “blinded” transcript still reveals lets archives protect them and stay open to research.</dd>
           <dt>The question</dt><dd>How much do “blinded” interview transcripts still reveal about who is speaking?</dd>
           <dt>What it found</dt><dd>On the ESLO corpus of Orléans interviews, a quote-grounded loop recovered speakers&#x27; sex and recording era in all 99 interviews it completed, and age bracket exactly in 59 of 68.</dd>
           <dt>Where it got stuck</dt><dd>Two of the three approaches are not in the repository yet, the held-out interviews have not been run, and the corpus quotes need a licensing fix.</dd>
@@ -483,6 +567,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 32px; justify-content: 
         <h3>MetaboliteSensorFinder</h3>
         <div class="title">An agent that screens protein domains against human metabolites</div>
         <dl>
+          <dt>Why it matters</dt><dd><b>Watching metabolism in living cells.</b> Biosensors that light up when a metabolite appears let labs follow metabolism live, in diabetes, cancer and the microbes that make medicines. Today, finding one for a new molecule takes a structural-biology budget.</dd>
           <dt>The question</dt><dd>Which protein domains could sense a given human metabolite, so that a lab without a structural biology budget can start a biosensor project?</dd>
           <dt>What it found</dt><dd>A three-stage screening funnel (bindPredict, PSICHIC, DiffDock) with carefully designed safeguards, and a curated table of 8,685 protein–ligand pairs that makes a scored evaluation possible.</dd>
           <dt>Where it got stuck</dt><dd>No screen has run yet: the ligand library, the tool environments and a pilot run are the next steps, and the fuller code sits on an unmerged branch.</dd>
@@ -495,6 +580,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 32px; justify-content: 
         <h3>Science Resocialized</h3>
         <div class="title">Blind researcher agents and review panels scored against psychology replications</div>
         <dl>
+          <dt>Why it matters</dt><dd><b>Science we can rely on.</b> Many published findings fail to replicate, which misleads medicine and policy. As AI multiplies claims, we need review that reliably lands on the truth.</dd>
           <dt>The question</dt><dd>Which social structure of peer review lands on the truth most often, scored against real replication outcomes?</dd>
           <dt>What it found</dt><dd>Blind researcher agents, given masked study cards and raw replication data, reached the recorded conclusion on all 30 Reproducibility Project studies.</dd>
           <dt>Where it got stuck</dt><dd>The review panels, the actual research question, have not run yet; the cards named the test to run, and the studies are likely in the model&#x27;s memory.</dd>
@@ -507,6 +593,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 32px; justify-content: 
         <h3>Do LLMs Argue Like Humans?</h3>
         <div class="title">Comparing the reasoning graphs of human and ChatGPT answers</div>
         <dl>
+          <dt>Why it matters</dt><dd><b>Keeping our reasoning rich.</b> More and more people learn and decide with AI answers. If those answers skip the counterarguments, how we reason together gets flatter.</dd>
           <dt>The question</dt><dd>Do ChatGPT answers build their arguments differently from human ones, seen as graphs of claims and links?</dd>
           <dt>What it found</dt><dd>A careful extraction study: voting over five labellings makes LLM argument extraction much more stable on short texts, at no loss of accuracy. Its numbers recompute exactly.</dd>
           <dt>Where it got stuck</dt><dd>The human-versus-LLM comparison itself is not yet committed in a checkable form, and hand labels are needed to know the extractor reads both kinds of text equally well.</dd>
@@ -519,6 +606,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 32px; justify-content: 
         <h3>llm-lying-detection</h3>
         <div class="title">Lie detectors that generalize to unseen kinds of lies</div>
         <dl>
+          <dt>Why it matters</dt><dd><b>Knowing when an AI is lying.</b> A lie detector for AI only helps if it catches lies it has never seen. That is what would let people rely on what a model tells them.</dd>
           <dt>The question</dt><dd>Do activation lie detectors catch kinds of lies they were never trained on, as a real deception monitor must?</dd>
           <dt>What it found</dt><dd>Claude rewrote the probe 15 times against a harness that hides the test families, raising test macro-AUROC from 0.806 to 0.845. Editing a probe&#x27;s weights directly did not survive the sealed test, a clean negative result.</dd>
           <dt>Where it got stuck</dt><dd>One seed and a gain of about two standard errors; the activations and per-example scores stayed in Colab, so the results rest on committed summaries.</dd>
@@ -531,6 +619,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 32px; justify-content: 
         <h3>predictive lens</h3>
         <div class="title">open-foresight: an energy-transition lens on a judgment-based scenario model</div>
         <dl>
+          <dt>Why it matters</dt><dd><b>Ready for the next energy shock.</b> The energy transition shapes prices, jobs and the climate, and shocks like the 2022 gas crisis hit households hard. Planners need forecasts whose every assumption is visible and scored.</dd>
           <dt>The question</dt><dd>Can scenario probabilities for the German energy transition be made transparent, updated by rules on open data, and scored against what happens?</dd>
           <dt>What it found</dt><dd>A reproducible backtest found that no numeric indicator would have warned selectively and in time before 2008, 2020 or 2022, and a forecasting prototype beats a baseline only by a hair. Both are stated plainly, and both recompute.</dd>
           <dt>Where it got stuck</dt><dd>There is no agentic loop yet, and proof that the model predicts needs forecasts that resolve from 2027 on.</dd>
@@ -593,7 +682,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 32px; justify-content: 
       We want to run it again, in more cities and with more scientists, and keep the loops from this one running.
     </p>
     <div class="join-grid">
-      <div><h3>Scientists</h3><p>Bring an open problem from your research that you can check by computation. Start from the <a href="https://github.com/xemantic/claude-impact-lab-2026/blob/main/RESEARCH-LOOPS.md">guide to building research loops</a>, or pick up one of these thirteen.</p></div>
+      <div><h3>Scientists</h3><p>Bring an open problem from your research that you can check by computation, and tell us whose life it could improve. Start from the <a href="https://github.com/xemantic/claude-impact-lab-2026/blob/main/RESEARCH-LOOPS.md">guide to building research loops</a>, or pick up one of these thirteen.</p></div>
       <div><h3>Engineers</h3><p>Fork a loop, run it on new data, fix what the assessment found. Questions and team formation happen on the <a href="https://discord.gg/vQktqqN2Vn">community Discord</a>.</p></div>
       <div><h3>Partners</h3><p>Host a lab, sponsor compute or connect us with research groups. Reach the organisers through the <a href="https://github.com/xemantic/claude-impact-lab-2026">project repository</a> or <a href="https://foresight.org/">Foresight Institute</a>.</p></div>
     </div>
