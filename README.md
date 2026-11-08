@@ -6,6 +6,11 @@ co-hosted by [Foresight Institute](https://foresight.org/).
 Scientists bring the open problems in their research they most want AI help with,
 and we spend a day building on them.
 
+## Results
+
+The [results website](https://xemantic.github.io/claude-impact-lab-2026/) guides through the format, what the loops found, and all thirteen projects.
+Claude's [assessments](assessments/README.md) of each submission check every claim against its repository.
+
 ## Presentation
 
 The [main presentation](https://docs.google.com/presentation/d/1P4Zf5t-wDYfVolJKKEEeF8e5_DLYYiZpZCzCV7XdRec/edit?usp=sharing) of the event.
