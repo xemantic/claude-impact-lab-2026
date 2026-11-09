@@ -28,6 +28,10 @@ body { font-family: var(--font-sans); color: var(--color-black); }
 /* the header is fixed, so anchors land below it */
 [id] { scroll-margin-top: 96px; }
 
+/* Newsreader sits higher in its line box than ABC Arizona Text, so nudge the pill labels down to centre them */
+.block-header__menu .menu .menu-item a { padding-top: calc(.75rem + 2px); padding-bottom: calc(.75rem - 2px); }
+#menu-toggle { padding-top: calc(.5rem + 2px); padding-bottom: calc(.5rem - 2px); }
+
 /* Everything below covers what the vendored build has no class for */
 .hero-title { position: relative; }
 .hero-title em { font-style: normal; color: var(--color-purple-800); }

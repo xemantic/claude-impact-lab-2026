@@ -38,6 +38,8 @@ Modern editors soft-wrap Markdown visually.
   Do not hotlink `foresight.org/wp-content/themes/foresight/dist/*` either, the file names are content hashes that change on every theme build.
 - Tailwind v4 puts everything in `@layer`, so any unlayered rule in the inline `<style>` beats every utility on the same element, whatever its specificity.
   Avoid `.group` as a custom class name: it is Tailwind's `group-hover` marker.
+- Newsreader sits about 2px higher in its line box than the font Foresight's pills were tuned for, so text centred with symmetric padding looks too high.
+  The nav pills need asymmetric padding; this regressed once already when the nav was restyled.
 
 ## Anti-patterns to avoid
 
