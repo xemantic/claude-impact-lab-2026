@@ -16,6 +16,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,300;6..72,400&display=swap" rel="stylesheet">
 <style>
 :root {
+  color-scheme: light;
   /* Palette from foresight.org; fonts are free stand-ins for ABC Arizona Text and Neue Haas Unica Pro */
   --serif: "Newsreader", "ABC Arizona Text", Georgia, serif;
   --sans: "Inter", "Neue Haas Unica Pro", system-ui, sans-serif;
@@ -34,24 +35,6 @@
   --pip-off: #dcdcdc;
   --join-bg: #2c252e;
   --shadow: 0 1px 2px rgba(20, 30, 40, .05), 0 4px 16px rgba(20, 30, 40, .04);
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #131517;
-    --bg-grad: linear-gradient(194deg, #1c2730 -3.26%, #131517);
-    --surface: #1b1e21;
-    --surface-2: #181c20;
-    --ink: #f4f6f7;
-    --ink-2: #a9b0b5;
-    --line: #33383c;
-    --accent: #dcb7ea;
-    --accent-soft: #3a2c40;
-    --teal: #7edbdb;
-    --teal-soft: #1b3333;
-    --pip-off: #33383c;
-    --join-bg: #0d0e0f;
-    --shadow: none;
-  }
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -128,12 +111,6 @@ nav.top .links a:hover { color: var(--ink); }
 .value[data-v="ai"] { --vc: #888adb; }
 .value[data-v="soc"] { --vc: #43cbcb; }
 .value[data-v="planet"] { --vc: #9bcf46; }
-@media (prefers-color-scheme: dark) {
-  .value[data-v="health"] { --vc: #f39596; }
-  .value[data-v="ai"] { --vc: #bbbcf0; }
-  .value[data-v="soc"] { --vc: #7edbdb; }
-  .value[data-v="planet"] { --vc: #c0ec78; }
-}
 .impacts { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; margin-top: 16px; }
 @media (max-width: 400px) { .impacts { grid-template-columns: 1fr; } }
 .impact {
@@ -277,7 +254,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 32px; justify-content: 
 
 <nav class="top">
   <div class="wrap">
-    <a class="brand" href="#top">Claude Impact Lab Berlin</a>
+    <a class="brand" href="#top">Claude Impact Lab for Science</a>
     <div class="links">
       <a href="#impact">Why it matters</a>
       <a href="#format">The format</a>
