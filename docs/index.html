@@ -48,6 +48,21 @@ body { font-family: var(--font-sans); color: var(--color-black); }
 .journey li { counter-increment: s; }
 .journey li::before { content: "0" counter(s); display: block; font: 400 12px/1.2 var(--font-sans); color: var(--color-gray-1000); }
 
+/* photo gallery: a scroll-snap strip; the next photo peeks in so it reads as slidable */
+.gallery-track { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain; }
+.gallery-track::-webkit-scrollbar { display: none; }
+.gallery-slide { flex: 0 0 88%; margin: 0; scroll-snap-align: start; }
+@media (min-width: 1024px) { .gallery-slide { flex-basis: 70%; } }
+.gallery-slide img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 1rem; background: var(--color-gray-600); }
+.gallery-nav .button { display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 40px; padding: 0; }
+.gallery-nav .button:disabled { opacity: .4; cursor: default; }
+.gallery-nav .prev svg { transform: rotate(180deg); }
+
+/* the project the judging panel chose */
+.winner { display: inline-flex; align-items: center; gap: 6px; align-self: flex-start; border-radius: 9999px; padding: 4px 12px 3px; background: var(--color-purple-800); color: var(--color-white); font: 500 12px/1.2 var(--font-sans); letter-spacing: .04em; text-transform: uppercase; }
+.winner::before { content: "★"; font-size: 13px; }
+.block-tile.is-winner { box-shadow: 0 0 0 2px var(--color-purple-800); }
+
 .principles li { position: relative; padding-left: 44px; }
 .principles li::before {
   content: attr(data-n); position: absolute; left: 0; top: 0;
@@ -157,13 +172,14 @@ details.scores summary { cursor: pointer; }
     <nav class="block-header__menu hidden xl:block" aria-label="Sections">
       <ul class="menu">
         <li class="menu-item"><a href="#impact">Why it matters</a></li>
+        <li class="menu-item"><a href="#origin">How it began</a></li>
         <li class="menu-item"><a href="#format">The format</a></li>
         <li class="menu-item"><a href="#results">Results</a></li>
         <li class="menu-item"><a href="#projects">Projects</a></li>
-        <li class="menu-item"><a href="#learned">What we learned</a></li>
         <li class="menu-item menu-item-has-children">
-          <a href="#assessment">More</a>
+          <a href="#learned">More</a>
           <ul class="sub-menu">
+            <li class="menu-item"><a href="#learned">What we learned</a></li>
             <li class="menu-item"><a href="#assessment">Assessment</a></li>
             <li class="menu-item"><a href="#join">Run the next one</a></li>
             <li class="menu-item"><a href="#art">Artwork</a></li>
@@ -177,6 +193,7 @@ details.scores summary { cursor: pointer; }
   <nav class="block-header__menu -mobile mb-12" aria-label="Sections">
     <ul class="menu">
       <li class="menu-item"><a href="#impact">Why it matters</a></li>
+      <li class="menu-item"><a href="#origin">How it began</a></li>
       <li class="menu-item"><a href="#format">The format</a></li>
       <li class="menu-item"><a href="#results">Results</a></li>
       <li class="menu-item"><a href="#projects">Projects</a></li>
@@ -228,6 +245,27 @@ details.scores summary { cursor: pointer; }
     <a class="component-button-xl text-menu inline-flex cursor-pointer items-center justify-center rounded-full transition-colors bg-white hover:bg-secondary-600 active:bg-secondary-700 px-5 py-2" href="#join"><span>Run the next one</span></a>
   </div>
 
+  <!-- Photos from the day: add one <figure> per photo, 3:2 landscape, about 1200×800 -->
+  <div class="gallery mt-10" role="region" aria-roledescription="carousel" aria-label="Photos from the day">
+    <div class="gallery-track" tabindex="0">
+      <figure class="gallery-slide" aria-roledescription="slide">
+        <img src="images/micrograph-demo.jpg" width="1200" height="800" alt="Two team members on stage present their loop: micrographs of 316L steel with grain boundaries traced in red, and the error falling from 1290% to 17.4%.">
+        <figcaption class="text-d9 text-gray-1000 mt-3"><a class="underline" href="#p5">micrograph</a> presents its loop: on real steel, the grain-boundary error falls from 1290% to 17.4%.</figcaption>
+      </figure>
+      <figure class="gallery-slide" aria-roledescription="slide">
+        <img src="images/team-whiteboard.jpg" width="1200" height="800" loading="lazy" alt="The Do LLMs Argue Like Humans? team smiles in front of a whiteboard sketching a pipeline for extracting arguments, claims, reasons and refutations.">
+        <figcaption class="text-d9 text-gray-1000 mt-3">The <a class="underline" href="#p13">Do LLMs Argue Like Humans?</a> team in front of its plan: extract arguments, claims, reasons and refutations, then compare them.</figcaption>
+      </figure>
+    </div>
+    <div class="gallery-nav mt-4 flex items-center justify-between gap-4">
+      <span class="text-d9 text-gray-1000" aria-live="polite"><span class="gallery-count">1</span> / <span class="gallery-total">2</span></span>
+      <span class="flex gap-2">
+        <button type="button" class="prev button button-standard button-md" aria-label="Previous photo"><svg class="fill-current" width="11" height="9" aria-hidden="true"><use href="#arrow"/></svg></button>
+        <button type="button" class="next button button-standard button-md" aria-label="Next photo"><svg class="fill-current" width="11" height="9" aria-hidden="true"><use href="#arrow"/></svg></button>
+      </span>
+    </div>
+  </div>
+
   <div class="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-4" role="list">
     <div class="rounded-2xl bg-white p-5" role="listitem"><span class="block text-d2">13</span><span class="block mt-3 text-d9 text-gray-1000">research loops, each in a public GitHub repository</span></div>
     <div class="rounded-2xl bg-white p-5" role="listitem"><span class="block text-d2">4</span><span class="block mt-3 text-d9 text-gray-1000">human goals: healthier lives, AI people can trust, a safer society, a livable planet</span></div>
@@ -263,7 +301,8 @@ details.scores summary { cursor: pointer; }
         <a class="block-tile not-prose group relative flex flex-col overflow-hidden rounded-2xl bg-white p-5" href="#p8">
           <div class="component-background absolute top-0 left-0 z-0 w-full h-full gradient-2 opacity-0 transition-opacity group-hover:opacity-100"></div>
           <div class="relative z-10 flex h-full flex-col">
-            <h4 class="text-d3">How sleep keeps our memories</h4>
+            <span class="winner">Winner</span>
+            <h4 class="text-d3 mt-3">How sleep keeps our memories</h4>
             <p class="text-d7 mt-3 mb-auto">During sleep, the brain replays the day to store it. Watching that happen in thousands of cells at once could help explain memory loss in ageing and disease.</p>
             <hr class="component-hr border-gray-700 my-4">
             <p class="text-meta text-gray-1000 mb-1">One day’s step</p>
@@ -412,6 +451,39 @@ details.scores summary { cursor: pointer; }
   </div>
 </section>
 
+<section class="container mx-auto px-4 lg:px-10 pt-10 pb-14" id="origin">
+  <hr class="component-hr border-gray-800 mb-10">
+  <p class="text-h6 mb-4">How it began</p>
+  <h2 class="text-h1 max-w-[952px]">It started with a question we could not answer</h2>
+  <p class="text-d8 mt-6 max-w-4xl">
+    In July 2026, Foresight Institute brought researchers and builders to Berlin for its
+    <a class="underline" href="https://foresight.org/events/2026-secure-sovereign-ai-workshop/">Secure &amp; Sovereign AI Workshop</a>.
+    In one of its working groups, two of this lab's organisers, Keith Patarroyo and Kazik Pogoda, started from a simple observation:
+    AI research loops can already automate real parts of scientific research.
+    So which research should we automate first?
+  </p>
+  <p class="text-d8 mt-6 max-w-4xl">
+    We realised we could not answer that ourselves.
+    Choosing well means knowing where a field is stuck, which results can be checked, and what a breakthrough would change for people.
+    That knowledge belongs to the scientists who do the research.
+    Meanwhile, the know-how of building loops grew up in computer science and machine learning,
+    and has barely reached the labs working on hearts, materials or the climate.
+    Each side holds half of the answer.
+  </p>
+  <p class="text-d8 mt-6 max-w-4xl">
+    So instead of guessing, we pitched a way to find out:
+    an Impact Lab that puts domain scientists and AI engineers side by side, on problems the scientists bring.
+    The scientists see what a loop can do with their own question;
+    the engineers learn what a problem worth solving looks like;
+    and the open loops they build together show, one field at a time, where automating research pays off first.
+  </p>
+  <ol class="bg-background-600 mt-10 grid grid-cols-1 gap-4 rounded-2xl p-6 md:grid-cols-3">
+    <li class="rounded-2xl bg-white p-5"><span class="text-meta text-gray-1000 block">July 2026 · Foresight Institute</span><b class="text-h3 block mt-2">The question and the pitch</b><span class="text-d9 text-gray-1000 block mt-2">A working group at the Secure &amp; Sovereign AI Workshop asks which research to automate first, and proposes bringing scientists and loop engineers together to answer it.</span></li>
+    <li class="rounded-2xl bg-white p-5"><span class="text-meta text-gray-1000 block">4 November 2026 · Claude Conversation</span><b class="text-h3 block mt-2">Scientists name the problems</b><span class="text-d9 text-gray-1000 block mt-2">An evening at CIC Berlin on where AI already helps research, where it fails, and which open problems scientists most want help with.</span></li>
+    <li class="rounded-2xl bg-white p-5"><span class="text-meta text-gray-1000 block">7 November 2026 · Claude Impact Lab</span><b class="text-h3 block mt-2">Thirteen loops in one day</b><span class="text-d9 text-gray-1000 block mt-2">Scientists and engineers built open research loops on those problems. This page is the first answer to the question from July.</span></li>
+  </ol>
+</section>
+
 <section class="container mx-auto px-4 lg:px-10 pt-10 pb-14" id="format">
   <hr class="component-hr border-gray-800 mb-10">
   <p class="text-h6 mb-4">The format</p>
@@ -505,7 +577,7 @@ details.scores summary { cursor: pointer; }
     </a>
     <a class="block-tile not-prose group relative flex flex-col overflow-hidden rounded-2xl bg-white p-5" href="#p8">
       <div class="component-background absolute top-0 left-0 z-0 w-full h-full gradient-2 opacity-0 transition-opacity group-hover:opacity-100"></div>
-      <div class="relative z-10 flex h-full flex-col"><p class="text-d2 c-neg">Not enough evidence</p><p class="text-d7 mt-3 mb-auto">A verdict rule fixed before any real data said "no call" on public calcium imaging, and showed that a common statistical bound is too lenient on such data.</p><hr class="component-hr border-gray-700 my-4"><p class="text-d9 text-gray-1000">Shift Happens · neuroscience</p></div>
+      <div class="relative z-10 flex h-full flex-col"><span class="winner">Winner</span><p class="text-d2 c-neg mt-3">Not enough evidence</p><p class="text-d7 mt-3 mb-auto">A verdict rule fixed before any real data said "no call" on public calcium imaging, and showed that a common statistical bound is too lenient on such data.</p><hr class="component-hr border-gray-700 my-4"><p class="text-d9 text-gray-1000">Shift Happens · neuroscience</p></div>
     </a>
     <a class="block-tile not-prose group relative flex flex-col overflow-hidden rounded-2xl bg-white p-5" href="#p15">
       <div class="component-background absolute top-0 left-0 z-0 w-full h-full gradient-2 opacity-0 transition-opacity group-hover:opacity-100"></div>
@@ -533,6 +605,7 @@ details.scores summary { cursor: pointer; }
   <p class="text-d8 mt-6 max-w-4xl">
     Each card links to the open-source repository, the team's submission, and Claude's published assessment of it.
     Every project page can be shared by its own link.
+    The judging panel chose <a class="underline" href="#p8">Shift Happens</a> as the winning project.
   </p>
   <div class="gradient-teal mt-10 rounded-2xl p-6">
     <div class="filters flex flex-wrap gap-2" role="group" aria-label="Filter by area">
@@ -638,8 +711,8 @@ details.scores summary { cursor: pointer; }
           <a class="component-link inline-flex items-center justify-center button button-gray button-md" href="https://github.com/xemantic/claude-impact-lab-2026/blob/main/assessments/7-baucode.md"><span class="relative -top-0.25">Full assessment</span><span><svg class="ml-1 fill-current" width="11" height="9" aria-hidden="true"><use href="#arrow"/></svg></span></a>
         </div>
       </article>
-      <article class="block-tile not-prose relative flex flex-col rounded-2xl bg-white p-5" id="p8" data-g="life">
-        <div class="flex flex-wrap items-center justify-between gap-2"><span class="component-tag py-1 px-3 rounded-lg text-tag transition-colors bg-gray-600 text-gray-1000">Neuroscience</span><span class="text-d7 text-gray-1000">#8</span></div>
+      <article class="block-tile is-winner not-prose relative flex flex-col rounded-2xl bg-white p-5" id="p8" data-g="life">
+        <div class="flex flex-wrap items-center justify-between gap-2"><span class="flex flex-wrap items-center gap-2"><span class="component-tag py-1 px-3 rounded-lg text-tag transition-colors bg-gray-600 text-gray-1000">Neuroscience</span><span class="winner">Winner</span></span><span class="text-d7 text-gray-1000">#8</span></div>
         <hr class="component-hr border-gray-700 my-4">
         <h3 class="text-d3">Shift Happens</h3>
         <p class="text-d7 text-gray-1000 mt-2">Calcium sleep reactivation toolbox: four methods, one locked answer key</p>
@@ -921,6 +994,48 @@ details.scores summary { cursor: pointer; }
   }
   toggle.addEventListener('click', function () { setOpen(panel.classList.contains('hidden')); });
   panel.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { setOpen(false); }); });
+})();
+(function () {
+  var g = document.querySelector('.gallery');
+  if (!g) return;
+  var track = g.querySelector('.gallery-track');
+  var slides = g.querySelectorAll('.gallery-slide');
+  var prev = g.querySelector('.prev'), next = g.querySelector('.next');
+  var count = g.querySelector('.gallery-count');
+  g.querySelector('.gallery-total').textContent = slides.length;
+  function current() {
+    var x = track.scrollLeft, best = 0;
+    slides.forEach(function (s, i) { if (Math.abs(s.offsetLeft - track.offsetLeft - x) < Math.abs(slides[best].offsetLeft - track.offsetLeft - x)) best = i; });
+    // the last slide may never reach the left edge, so treat the scroll end as the last slide
+    if (x + track.clientWidth >= track.scrollWidth - 2) best = slides.length - 1;
+    return best;
+  }
+  function go(i) { track.scrollTo({ left: slides[i].offsetLeft - track.offsetLeft, behavior: 'smooth' }); }
+  function update() {
+    var i = current();
+    count.textContent = i + 1;
+    prev.disabled = i === 0;
+    next.disabled = i === slides.length - 1;
+  }
+  track.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+  var timer = null, stopped = window.matchMedia('(prefers-reduced-motion: reduce)').matches || slides.length < 2;
+  function stop() { stopped = true; clearInterval(timer); }
+  prev.addEventListener('click', function () { stop(); go(Math.max(current() - 1, 0)); });
+  next.addEventListener('click', function () { stop(); go(Math.min(current() + 1, slides.length - 1)); });
+  track.addEventListener('pointerdown', stop);
+  track.addEventListener('keydown', stop);
+  var paused = false;
+  g.addEventListener('mouseenter', function () { paused = true; });
+  g.addEventListener('mouseleave', function () { paused = false; });
+  g.addEventListener('focusin', function () { paused = true; });
+  g.addEventListener('focusout', function () { paused = false; });
+  if (!stopped) timer = setInterval(function () {
+    if (paused || document.hidden) return;
+    var i = current();
+    go(i === slides.length - 1 ? 0 : i + 1);
+  }, 6000);
 })();
 (function () {
   var chips = document.querySelectorAll('.filters .button');
