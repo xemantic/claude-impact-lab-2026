@@ -29,6 +29,16 @@ Modern editors soft-wrap Markdown visually.
 
 - In Claude Code "auto mode", never commit on your own — leave the changes in the working tree so the developer can review the diff first, and commit only when explicitly asked.
 
+## Website (`docs/`)
+
+- The page is styled with Foresight Institute's compiled Tailwind build, vendored in `docs/vendor/foresight/` (provenance and refresh steps in its README).
+  Its utilities are purged to what foresight.org uses, so check that a class exists in `foresight.css` before using it;
+  the inline `<style>` in `index.html` is only for what the build lacks.
+- Their fonts (ABC Arizona Text, Neue Haas Unica Pro) cannot be used: licensed to foresight.org and served without CORS.
+  Do not hotlink `foresight.org/wp-content/themes/foresight/dist/*` either, the file names are content hashes that change on every theme build.
+- Tailwind v4 puts everything in `@layer`, so any unlayered rule in the inline `<style>` beats every utility on the same element, whatever its specificity.
+  Avoid `.group` as a custom class name: it is Tailwind's `group-hover` marker.
+
 ## Anti-patterns to avoid
 
 - Do not add content to this file that is already discoverable by reading the source or build scripts — that inflates context without adding signal, reducing AI agent task success rates (see [arxiv 2602.11988](https://arxiv.org/abs/2602.11988)).
