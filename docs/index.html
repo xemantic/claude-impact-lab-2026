@@ -198,9 +198,9 @@ details.scores summary { cursor: pointer; }
       <li class="menu-item"><a href="#format">The format</a></li>
       <li class="menu-item"><a href="#results">Results</a></li>
       <li class="menu-item"><a href="#projects">Projects</a></li>
+      <li class="menu-item"><a href="#people">People</a></li>
       <li class="menu-item"><a href="#learned">What we learned</a></li>
       <li class="menu-item"><a href="#assessment">Assessment</a></li>
-      <li class="menu-item"><a href="#people">People</a></li>
       <li class="menu-item"><a href="#join">Run the next one</a></li>
       <li class="menu-item"><a href="#art">Artwork</a></li>
     </ul>
@@ -869,46 +869,6 @@ details.scores summary { cursor: pointer; }
   </div>
 </section>
 
-<section class="container mx-auto px-4 lg:px-10 pt-10 pb-14" id="learned">
-  <hr class="component-hr border-gray-800 mb-10">
-  <p class="text-h6 mb-4">What we learned</p>
-  <h2 class="text-h1 max-w-[952px]">Lessons for AI in science, and for the next Impact Lab</h2>
-  <div class="gradient-green mt-10 grid grid-cols-1 gap-5 rounded-2xl p-6 md:grid-cols-3">
-    <div class="rounded-2xl bg-white p-5"><h3 class="text-d3">Fix the answer key first</h3><p class="text-d7 text-gray-1000 mt-3">The most trustworthy loops wrote down, before seeing real data, what result would count as a "yes": a locked verdict rule, a hidden test split, a held-out list. That is what let them report a "no" with confidence.</p></div>
-    <div class="rounded-2xl bg-white p-5"><h3 class="text-d3">Negative results are results</h3><p class="text-d7 text-gray-1000 mt-3">Seven teams reported a missed target or a negative finding in plain words, and several of these were among the best-evidenced work of the day. A loop that can say "not enough evidence" is a loop you can trust.</p></div>
-    <div class="rounded-2xl bg-white p-5"><h3 class="text-d3">State in files makes work checkable</h3><p class="text-d7 text-gray-1000 mt-3">Journals, task lists and committed outputs let an independent reviewer recompute the numbers. Where results stayed in a notebook or on another branch, they could not be checked.</p></div>
-    <div class="rounded-2xl bg-white p-5"><h3 class="text-d3">Scientist and engineer, side by side</h3><p class="text-d7 text-gray-1000 mt-3">The strongest loops encoded domain judgement as checks: planted defects, positive controls, chamber-identity confounds. That knowledge came from the scientists, and the loops made it executable.</p></div>
-    <div class="rounded-2xl bg-white p-5"><h3 class="text-d3">Agents can build the expensive tooling</h3><p class="text-d7 text-gray-1000 mt-3">Several teams had agents build the tooling first — a protocol mapper that usually costs experts weeks, a probe harness, a segmentation pipeline — and then turned the loop on the science.</p></div>
-    <div class="rounded-2xl bg-white p-5"><h3 class="text-d3">Open source needs a checklist</h3><p class="text-d7 text-gray-1000 mt-3">Only 3 of 13 repositories were ready to donate unchanged. The fixes are small — a license file, dataset credits, checking a data license — and next time they belong in the submission template.</p></div>
-  </div>
-
-  <div class="bar mt-5 rounded-2xl bg-white p-5 text-d7" aria-label="Readiness across the 13 projects">
-    <h3 class="text-h2">Across the 13 projects</h3>
-    <div class="row"><span>Results recompute from committed files or public data</span><div class="track"><div class="fill" style="width:84.6%"></div></div><span class="num text-d9 text-gray-1000">11 / 13</span></div>
-    <div class="row"><span>Negative result or missed target stated plainly</span><div class="track"><div class="fill" style="width:53.8%"></div></div><span class="num text-d9 text-gray-1000">7 / 13</span></div>
-    <div class="row"><span>Ready to donate as open source without changes</span><div class="track"><div class="fill warm" style="width:23.1%"></div></div><span class="num text-d9 text-gray-1000">3 / 13</span></div>
-  </div>
-</section>
-
-<section class="container mx-auto px-4 lg:px-10 pt-10 pb-14" id="assessment">
-  <hr class="component-hr border-gray-800 mb-10">
-  <p class="text-h6 mb-4">How the projects were assessed</p>
-  <h2 class="text-h1 max-w-[952px]">Every claim checked against its repository</h2>
-  <p class="text-d8 mt-6 max-w-4xl">
-    Alongside the human judges, Claude assessed every submission with a
-    <a class="underline" href="https://github.com/xemantic/claude-impact-lab-2026/blob/main/.claude/skills/judge-submissions/SKILL.md">published method</a>,
-    one independent agent per project.
-    The assessments are public, so teams can review and compare them, and anyone can check the checker.
-  </p>
-  <div class="bg-background-600 mt-10 grid grid-cols-1 gap-4 rounded-2xl p-6 sm:grid-cols-2 lg:grid-cols-4">
-    <div class="rounded-2xl bg-white p-5"><b class="text-h3 block">Claims, not slides</b><span class="text-d9 text-gray-1000 block mt-2">Each claim in the submission was traced to the files and code that produced it: supported, partly supported, unsupported or contradicted.</span></div>
-    <div class="rounded-2xl bg-white p-5"><b class="text-h3 block">Recompute, don't trust</b><span class="text-d9 text-gray-1000 block mt-2">Agents recomputed headline numbers with their own scripts, some from the raw public datasets. Submitted code was never run.</span></div>
-    <div class="rounded-2xl bg-white p-5"><b class="text-h3 block">Five criteria</b><span class="text-d9 text-gray-1000 block mt-2">Problem, loop, evidence, honesty and reproducibility, scored 1–5 with evidence. An honest negative beats an unsupported claim.</span></div>
-    <div class="rounded-2xl bg-white p-5"><b class="text-h3 block">Pinned and open</b><span class="text-d9 text-gray-1000 block mt-2">Each assessment names the exact commit it judged, and checks that the repository can be donated as open source.</span></div>
-  </div>
-  <p class="mt-8"><a class="component-link inline-flex items-center justify-center button button-standard button-md" href="https://github.com/xemantic/claude-impact-lab-2026/tree/main/assessments"><span class="relative -top-0.25">Read all assessments</span><span><svg class="ml-1 fill-current" width="11" height="9" aria-hidden="true"><use href="#arrow"/></svg></span></a></p>
-</section>
-
 <section class="container mx-auto px-4 lg:px-10 pt-10 pb-14" id="people">
   <hr class="component-hr border-gray-800 mb-10">
   <p class="text-h6 mb-4">The people</p>
@@ -962,6 +922,46 @@ details.scores summary { cursor: pointer; }
     <a class="underline" href="https://www.linkedin.com/showcase/cic-berlin/">CIC Berlin</a> for the venue,
     and to <a class="underline" href="https://aethos.org/">Æthos</a> for sharing their space.
   </p>
+</section>
+
+<section class="container mx-auto px-4 lg:px-10 pt-10 pb-14" id="learned">
+  <hr class="component-hr border-gray-800 mb-10">
+  <p class="text-h6 mb-4">What we learned</p>
+  <h2 class="text-h1 max-w-[952px]">Lessons for AI in science, and for the next Impact Lab</h2>
+  <div class="gradient-green mt-10 grid grid-cols-1 gap-5 rounded-2xl p-6 md:grid-cols-3">
+    <div class="rounded-2xl bg-white p-5"><h3 class="text-d3">Fix the answer key first</h3><p class="text-d7 text-gray-1000 mt-3">The most trustworthy loops wrote down, before seeing real data, what result would count as a "yes": a locked verdict rule, a hidden test split, a held-out list. That is what let them report a "no" with confidence.</p></div>
+    <div class="rounded-2xl bg-white p-5"><h3 class="text-d3">Negative results are results</h3><p class="text-d7 text-gray-1000 mt-3">Seven teams reported a missed target or a negative finding in plain words, and several of these were among the best-evidenced work of the day. A loop that can say "not enough evidence" is a loop you can trust.</p></div>
+    <div class="rounded-2xl bg-white p-5"><h3 class="text-d3">State in files makes work checkable</h3><p class="text-d7 text-gray-1000 mt-3">Journals, task lists and committed outputs let an independent reviewer recompute the numbers. Where results stayed in a notebook or on another branch, they could not be checked.</p></div>
+    <div class="rounded-2xl bg-white p-5"><h3 class="text-d3">Scientist and engineer, side by side</h3><p class="text-d7 text-gray-1000 mt-3">The strongest loops encoded domain judgement as checks: planted defects, positive controls, chamber-identity confounds. That knowledge came from the scientists, and the loops made it executable.</p></div>
+    <div class="rounded-2xl bg-white p-5"><h3 class="text-d3">Agents can build the expensive tooling</h3><p class="text-d7 text-gray-1000 mt-3">Several teams had agents build the tooling first — a protocol mapper that usually costs experts weeks, a probe harness, a segmentation pipeline — and then turned the loop on the science.</p></div>
+    <div class="rounded-2xl bg-white p-5"><h3 class="text-d3">Open source needs a checklist</h3><p class="text-d7 text-gray-1000 mt-3">Only 3 of 13 repositories were ready to donate unchanged. The fixes are small — a license file, dataset credits, checking a data license — and next time they belong in the submission template.</p></div>
+  </div>
+
+  <div class="bar mt-5 rounded-2xl bg-white p-5 text-d7" aria-label="Readiness across the 13 projects">
+    <h3 class="text-h2">Across the 13 projects</h3>
+    <div class="row"><span>Results recompute from committed files or public data</span><div class="track"><div class="fill" style="width:84.6%"></div></div><span class="num text-d9 text-gray-1000">11 / 13</span></div>
+    <div class="row"><span>Negative result or missed target stated plainly</span><div class="track"><div class="fill" style="width:53.8%"></div></div><span class="num text-d9 text-gray-1000">7 / 13</span></div>
+    <div class="row"><span>Ready to donate as open source without changes</span><div class="track"><div class="fill warm" style="width:23.1%"></div></div><span class="num text-d9 text-gray-1000">3 / 13</span></div>
+  </div>
+</section>
+
+<section class="container mx-auto px-4 lg:px-10 pt-10 pb-14" id="assessment">
+  <hr class="component-hr border-gray-800 mb-10">
+  <p class="text-h6 mb-4">How the projects were assessed</p>
+  <h2 class="text-h1 max-w-[952px]">Every claim checked against its repository</h2>
+  <p class="text-d8 mt-6 max-w-4xl">
+    Alongside the human judges, Claude assessed every submission with a
+    <a class="underline" href="https://github.com/xemantic/claude-impact-lab-2026/blob/main/.claude/skills/judge-submissions/SKILL.md">published method</a>,
+    one independent agent per project.
+    The assessments are public, so teams can review and compare them, and anyone can check the checker.
+  </p>
+  <div class="bg-background-600 mt-10 grid grid-cols-1 gap-4 rounded-2xl p-6 sm:grid-cols-2 lg:grid-cols-4">
+    <div class="rounded-2xl bg-white p-5"><b class="text-h3 block">Claims, not slides</b><span class="text-d9 text-gray-1000 block mt-2">Each claim in the submission was traced to the files and code that produced it: supported, partly supported, unsupported or contradicted.</span></div>
+    <div class="rounded-2xl bg-white p-5"><b class="text-h3 block">Recompute, don't trust</b><span class="text-d9 text-gray-1000 block mt-2">Agents recomputed headline numbers with their own scripts, some from the raw public datasets. Submitted code was never run.</span></div>
+    <div class="rounded-2xl bg-white p-5"><b class="text-h3 block">Five criteria</b><span class="text-d9 text-gray-1000 block mt-2">Problem, loop, evidence, honesty and reproducibility, scored 1–5 with evidence. An honest negative beats an unsupported claim.</span></div>
+    <div class="rounded-2xl bg-white p-5"><b class="text-h3 block">Pinned and open</b><span class="text-d9 text-gray-1000 block mt-2">Each assessment names the exact commit it judged, and checks that the repository can be donated as open source.</span></div>
+  </div>
+  <p class="mt-8"><a class="component-link inline-flex items-center justify-center button button-standard button-md" href="https://github.com/xemantic/claude-impact-lab-2026/tree/main/assessments"><span class="relative -top-0.25">Read all assessments</span><span><svg class="ml-1 fill-current" width="11" height="9" aria-hidden="true"><use href="#arrow"/></svg></span></a></p>
 </section>
 
 <section class="container mx-auto px-4 lg:px-10 pt-10 pb-14" id="join">
